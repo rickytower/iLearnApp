@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AppController {
     @Autowired
-    private UserRegistredRepository userRegistredRepository;
+
+ private UserRegistredRepository userRegistredRepository;
     @RequestMapping("/")
     public String index(){
         return "login";
