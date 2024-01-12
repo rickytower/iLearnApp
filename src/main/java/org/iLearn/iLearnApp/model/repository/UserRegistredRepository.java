@@ -1,4 +1,10 @@
 package org.iLearn.iLearnApp.model.repository;
 
-public interface UserRegistredRepository {
+import org.iLearn.iLearnApp.model.entity.UserRegistred;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.Optional;
+
+public interface UserRegistredRepository extends CrudRepository<UserRegistred, Long>{
+    Optional<UserRegistred> findByUserNameAndPassword(String username, String password);
 }
