@@ -1,0 +1,69 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "firstName": "Mariano",
+      "lastName": "Ceccato",
+      "telephoneNumber": "123-456-7890",
+      "fiscalCode": "ABC123XYZ",
+      "username": "john.doe",
+      "password": "password123",
+      "address": "123 Main St",
+      "city": "Anytown",
+      "email": "mariano.ceccato@univr.it",
+      "roleType": "STUDENT"
+    },
+    {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "telephoneNumber": "987-654-3210",
+      "fiscalCode": "XYZ789ABC",
+      "username": "jane.smith",
+      "password": "password456",
+      "address": "456 Oak St",
+      "city": "Othertown",
+      "email": "jane.smith@example.com",
+      "roleType": "STUDENT"
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "telephoneNumber": "555-123-4567",
+      "fiscalCode": "PQR456LMN",
+      "username": "alice.johnson",
+      "password": "password789",
+      "address": "789 Pine St",
+      "city": "Somewhere",
+      "email": "alice.johnson@example.com",
+      "roleType": "STUDENT"
+    },
+    {
+      "id": 4,
+      "firstName": "Bob",
+      "lastName": "Williams",
+      "telephoneNumber": "111-222-3333",
+      "fiscalCode": "LMN789PQR",
+      "username": "bob.williams",
+      "password": "passwordabc",
+      "address": "321 Cedar St",
+      "city": "Anytown",
+      "email": "bob.williams@example.com",
+      "roleType": "STUDENT"
+    },
+    {
+      "id": 5,
+      "firstName": "Eva",
+      "lastName": "Davis",
+      "telephoneNumber": "444-555-6666",
+      "fiscalCode": "DEF789GHI",
+      "username": "eva.davis",
+      "password": "passwordef",
+      "address": "567 Elm St",
+      "city": "Othertown",
+      "email": "eva.davis@example.com",
+      "roleType": "STUDENT"
+    }
+  ]
+}

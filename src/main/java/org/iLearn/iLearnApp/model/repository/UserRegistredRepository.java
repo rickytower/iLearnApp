@@ -6,5 +6,13 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface UserRegistredRepository extends CrudRepository<UserRegistred, Long>{
+
+    /**
+     * Return the user in the repo with the correspondent password and username.
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     Optional<UserRegistred> findByUsernameAndPassword(String username, String password);
 }

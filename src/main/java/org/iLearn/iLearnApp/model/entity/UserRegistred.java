@@ -23,23 +23,23 @@ public class UserRegistred{
     public UserRegistred(String firstName, String lastName, String telephoneNumber, String fiscalCode, String username, String password, String address, String city, RoleType roleType) {
     }
 
-    public Long getId() {
+    protected Long getId() {
         return id;
     }
 
-    public String getFirstName() {
+    protected String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
+    protected String getLastName() {
         return lastName;
     }
 
-    public String getTelephoneNumber() {
+    protected String getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public String getFiscalCode() {
+    protected String getFiscalCode() {
         return fiscalCode;
     }
 
@@ -51,19 +51,19 @@ public class UserRegistred{
         return password;
     }
 
-    public String getAddress() {
+    protected String getAddress() {
         return address;
     }
 
-    public String getCity() {
+    protected String getCity() {
         return city;
     }
 
-    public String getEmail() {
+    protected String getEmail() {
         return email;
     }
 
-    public RoleType getRoleType() {
+    protected RoleType getRoleType() {
         return roleType;
     }
 }
