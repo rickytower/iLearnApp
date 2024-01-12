@@ -18,8 +18,8 @@ public class AppController {
 
     @RequestMapping("login")
     public String loginPage(@RequestParam("username")String username, @RequestParam("password") String password){
-        if(userRegistredRepository.findByUserNameAndPassword(username, password).isPresent()){
-            UserRegistred userRegistred = userRegistredRepository.findByUserNameAndPassword(username, password).get();
+        if(userRegistredRepository.findByUsernameAndPassword(username, password).isPresent()){
+            UserRegistred userRegistred = userRegistredRepository.findByUsernameAndPassword(username, password).get();
             if(username.equals(userRegistred.getUsername()) && password.equals(userRegistred.getPassword())){
                 return "profile";
             }

@@ -1,9 +1,8 @@
 package org.iLearn.iLearnApp.model.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
 public class UserRegistred{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,7 +11,7 @@ public class UserRegistred{
     private String lastName;
     private String telephoneNumber;
     private String fiscalCode;
-    @Id
+    @Column(unique = true)
     private String username;
     private String password;
     private String address;
