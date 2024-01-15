@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.minidev.json.writer.JsonReader;
 import org.apache.catalina.User;
+import org.iLearn.iLearnApp.model.entity.Student;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,15 @@ import static io.restassured.RestAssured.given;
 
 public class Utils {
     // Specify the path to your JSON file
-    private static final String filePath = "src/main/resources/dataJson.json";
+    private static final String filePath = "src/main/resources/studentsData.json";
 
     public static void initDB() throws IOException {
         /*Deserializzare il json → popolare il db*/
         File file = new File(filePath);
         TypeReference<List<UserRegistred>> typeReference = new TypeReference<List<UserRegistred>>() {};
         List<UserRegistred> userRegistredList = new ObjectMapper().readValue(file, typeReference);
-        System.out.println(userRegistredList);
+
+        for(UserRegistred student : userRegistredList )
+        System.out.println("\n\n\n\n\n" + student.propertyToString()  +"\n\n\n\n\n");
     }
 }

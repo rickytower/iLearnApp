@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "semester": 0,
+        "examList": [1,2,3],
+        "cfu": 6,
+        "courseName": "Analisi del software",
+        "courseType": "COMPULSORY"
+    },
+    {
+        "id": 2,
+        "semester": 1,
+        "examList": [4,5,6],
+        "cfu": 6,
+        "courseName": "Basi di dati avanzate",
+        "courseType": "COMPULSORY"
+    },
+    {
+        "id": 3,
+        "semester": 0,
+        "examList": [7,8],
+        "cfu": 6,
+        "courseName": "Cybersecurity e protezione dati",
+        "courseType": "COMPULSORY"
+    },
+    {
+        "id": 4,
+        "semester": 1,
+        "examList": [9,10],
+        "cfu": 6,
+        "courseName": "Progettazione e validazione di sistemi software",
+        "courseType": "OPTIONAL"
+    },
+    {
+        "id": 5,
+        "semester": 0,
+        "examList": [11,12],
+        "cfu": 6,
+        "courseName": "Sicurezza del software",
+        "courseType": "COMPULSORY"
+    },
+    {
+        "id": 6,
+        "semester": 1,
+        "examList": [13],
+        "cfu": 6,
+        "courseName": "Sistemi informativi aziendali",
+        "courseType": "COMPULSORY"
+    }
+]
