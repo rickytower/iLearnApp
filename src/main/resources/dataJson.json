@@ -1,9 +1,8 @@
-{
-  "students": [
+[
     {
       "id": 1,
-      "firstName": "Mariano",
-      "lastName": "Ceccato",
+      "firstname": "Mariano",
+      "lastname": "Ceccato",
       "telephoneNumber": "123-456-7890",
       "fiscalCode": "ABC123XYZ",
       "username": "john.doe",
@@ -11,12 +10,12 @@
       "address": "123 Main St",
       "city": "Anytown",
       "email": "mariano.ceccato@univr.it",
-      "roleType": "STUDENT"
+      "roleType": "RoleType.STUDENT"
     },
     {
       "id": 2,
-      "firstName": "Jane",
-      "lastName": "Smith",
+      "firstname": "Jane",
+      "lastname": "Smith",
       "telephoneNumber": "987-654-3210",
       "fiscalCode": "XYZ789ABC",
       "username": "jane.smith",
@@ -28,8 +27,8 @@
     },
     {
       "id": 3,
-      "firstName": "Alice",
-      "lastName": "Johnson",
+      "firstname": "Alice",
+      "lastname": "Johnson",
       "telephoneNumber": "555-123-4567",
       "fiscalCode": "PQR456LMN",
       "username": "alice.johnson",
@@ -37,12 +36,12 @@
       "address": "789 Pine St",
       "city": "Somewhere",
       "email": "alice.johnson@example.com",
-      "roleType": "STUDENT"
+      "roleType": "RoleType.STUDENT"
     },
     {
       "id": 4,
-      "firstName": "Bob",
-      "lastName": "Williams",
+      "firstname": "Bob",
+      "lastname": "Williams",
       "telephoneNumber": "111-222-3333",
       "fiscalCode": "LMN789PQR",
       "username": "bob.williams",
@@ -50,12 +49,12 @@
       "address": "321 Cedar St",
       "city": "Anytown",
       "email": "bob.williams@example.com",
-      "roleType": "STUDENT"
+      "roleType": "RoleType.STUDENT"
     },
     {
       "id": 5,
-      "firstName": "Eva",
-      "lastName": "Davis",
+      "firstname": "Eva",
+      "lastname": "Davis",
       "telephoneNumber": "444-555-6666",
       "fiscalCode": "DEF789GHI",
       "username": "eva.davis",
@@ -63,7 +62,6 @@
       "address": "567 Elm St",
       "city": "Othertown",
       "email": "eva.davis@example.com",
-      "roleType": "STUDENT"
+      "roleType": "RoleType.STUDENT"
     }
-  ]
-}
+]

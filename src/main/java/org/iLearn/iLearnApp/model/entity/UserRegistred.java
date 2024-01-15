@@ -7,8 +7,8 @@ public class UserRegistred{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String telephoneNumber;
     private String fiscalCode;
     @Column(unique = true)
@@ -20,19 +20,19 @@ public class UserRegistred{
     private RoleType roleType;
     public UserRegistred(String id, String password) {
     }
-    public UserRegistred(String firstName, String lastName, String telephoneNumber, String fiscalCode, String username, String password, String address, String city, RoleType roleType) {
+    public UserRegistred(String firstname, String lastname, String telephoneNumber, String fiscalCode, String username, String password, String address, String city, RoleType roleType) {
     }
 
     protected Long getId() {
         return id;
     }
 
-    protected String getFirstName() {
-        return firstName;
+    protected String getFirstname() {
+        return firstname;
     }
 
-    protected String getLastName() {
-        return lastName;
+    protected String getLastname() {
+        return lastname;
     }
 
     protected String getTelephoneNumber() {
