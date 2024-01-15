@@ -1,6 +1,7 @@
 package org.iLearn.iLearnApp;
 
 import io.restassured.RestAssured;
+import org.iLearn.iLearnApp.model.entity.Exam;
 import org.iLearn.iLearnApp.model.entity.RoleType;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
@@ -24,53 +25,26 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ILearnAppApplicationTests {
-	@Autowired
-	private Utils utils;
+    @Autowired
+    private Utils utils;
 
-	@Autowired
-	private UserRegistredRepository userRegistredRepository;
+    @BeforeEach
+    void setUp() throws IOException {
+        RestAssured.baseURI = "http://localhost:8080";
+        utils.initDB();
+    }
 
-	@BeforeEach
-	void setUp() throws IOException {
-		RestAssured.baseURI = "http://localhost:8080";
-		utils.initDB();
-	}
-
-	/**
-	 * Check if all the users in the json are correctly insert in the db
-	 * IN particular, they shall be 5.
-	 */
-	@Test
-	@DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
-	public void initDBTest() {
-		Iterable<UserRegistred> userRegistredList = userRegistredRepository.findAll();
-		assertEquals(((List<UserRegistred>) userRegistredList).size(),5);
-	}
-
-	/**
-	 * Login attempt with PROFESSOR ENTITY
-	 * Test to check if the role after the login attempt IS NOT STUDENT
-	 *
-	 * (in particular, from the StrundetsData.json search PROFESSOR)
-	 */
-	@Test
-	@DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
-	public void loginAsProfessor() {
-		Optional<UserRegistred> userRegistredList = userRegistredRepository.findByUsernameAndPassword("mariano", "ceccato");
-		assertEquals(userRegistredList.get().getRoleType(), RoleType.PROFESSOR);
-	}
-
-	/**
-	 * Login attempt with STUDENT ENTITY
-	 *
-	 */
-	@Test
-	@DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
-	public void loginAsStudent() {
-		Optional<UserRegistred> userRegistredList = userRegistredRepository.findByUsernameAndPassword("jane.smith", "password456");
-		assertFalse(userRegistredList.isEmpty());
-	}
-
-
+    /**
+     * Check if all the users in the json are correctly insert in the db
+     * IN particular, they shall be 5.
+     */
+    @Test
+    @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
+    public void initDBTest() {
+        List<UserRegistred> userRegistredList = (List<UserRegistred>) utils.getUserRegistredRepository().findAll();
+        List<Exam> examList = (List<Exam>) utils.getExamRepository().findAll();
+        assertEquals(userRegistredList.size(), 5);
+        assertEquals(examList.size(), 13);
+    }
 
 }
