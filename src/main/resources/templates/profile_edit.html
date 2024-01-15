@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLearn - Login</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+<header>
+
+    <h1>iLearn</h1>
+
+</header>
+
+<section>
+    <h2>Login</h2>
+    <p style="text-align:left;">
+        Insert the data that you want to change here:
+    </p>
+    <form action="profile_edit">
+        <label for="email">EMAIL:</label>
+        <input type="text" id="email" name="email" required>
+
+        <label for="telephoneNumber">CELLULAR:</label>
+        <input type="text" id="telephoneNumber" name="telephoneNumber" required>
+
+        <label for="address">ADDRESS:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="city">CITY:</label>
+        <input type="text" id="city" name="city" required>
+
+        <button type="submit">Send the data</button>
+    </form>
+</section>
+
+<footer>
+    <p>2024 iLearn - All rights reserved</p>
+</footer>
+
+</body>
+</html>

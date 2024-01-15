@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLearn - Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 
@@ -18,7 +18,9 @@
     <p>
         Hello dear <span>FIRSTNAME</span>,
 
-        In this section, you can view your personal information and update it. However, please note that you cannot update your name or family name by yourself. If you need to make changes to these details, please contact the student office for assistance.
+        In this section, you can view your personal information and update it. However, please note that you cannot
+        update your name or family name by yourself. If you need to make changes to these details, please contact the
+        student office for assistance.
 
         The student ID is automatically generated and does not need to be updated.
     </p>
@@ -28,12 +30,14 @@
     <!-- FINAL DATA-->
     <table>
         <tr>
+            <th>USERNAME</th>
             <th>FIRSTNAME</th>
-            <th>LAST NAME</th>
+            <th>LASTNAME</th>
             <th>FISCAL CODE</th>
             <th>STUDENT ID</th>
         </tr>
         <tr>
+            <td><span th:text="${student.username}"></span></td>
             <td><span th:text="${student.firstname}"></span></td>
             <td><span th:text="${student.lastname}"></span></td>
             <td><span th:text="${student.fiscalCode}"></span></td>
@@ -44,14 +48,20 @@
     <!-- CHANGABLE DATA-->
     <table>
         <tr>
+            <th>EMAIL</th>
             <th>CELLULAR</th>
             <th>ADDRESS</th>
             <th>CITY</th>
+            <th>ACTION</th>
         </tr>
         <tr>
+            <td><span th:text="${student.email}"></span></td>
             <td><span th:text="${student.telephoneNumber}"></span></td>
             <td><span th:text="${student.address}"></span></td>
             <td><span th:text="${student.city}"></span></td>
+            <td>
+                <button><a href="edit?id=10" th:href="@{edit(id=${person.id})}"> EDIT DATA </a></button>
+            </td>
         </tr>
     </table>
 

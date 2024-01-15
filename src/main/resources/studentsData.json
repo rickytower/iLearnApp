@@ -5,12 +5,12 @@
       "lastname": "Ceccato",
       "telephoneNumber": "123-456-7890",
       "fiscalCode": "ABC123XYZ",
-      "username": "john.doe",
-      "password": "password123",
+      "username": "mariano",
+      "password": "ceccato",
       "address": "123 Main St",
       "city": "Anytown",
       "email": "mariano.ceccato@univr.it",
-      "roleType": "STUDENT"
+      "roleType": "PROFESSOR"
     },
     {
       "id": 2,
