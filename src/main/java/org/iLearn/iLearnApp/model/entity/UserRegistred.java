@@ -31,7 +31,6 @@ public class UserRegistred {
     // Constructor with arguments for Jackson deserialization
     @JsonCreator
     public UserRegistred(
-            @JsonProperty("id") Long id,
             @JsonProperty("firstname") String firstname,
             @JsonProperty("lastname") String lastname,
             @JsonProperty("telephoneNumber") String telephoneNumber,
@@ -42,7 +41,6 @@ public class UserRegistred {
             @JsonProperty("city") String city,
             @JsonProperty("email") String email,
             @JsonProperty("roleType") RoleType roleType) {
-        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.telephoneNumber = telephoneNumber;

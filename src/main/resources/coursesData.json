@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "semester": 0,
         "examList": [1,2,3],
         "cfu": 6,
@@ -8,7 +7,6 @@
         "courseType": "COMPULSORY"
     },
     {
-        "id": 2,
         "semester": 1,
         "examList": [4,5,6],
         "cfu": 6,
@@ -16,7 +14,6 @@
         "courseType": "COMPULSORY"
     },
     {
-        "id": 3,
         "semester": 0,
         "examList": [7,8],
         "cfu": 6,
@@ -24,7 +21,6 @@
         "courseType": "COMPULSORY"
     },
     {
-        "id": 4,
         "semester": 1,
         "examList": [9,10],
         "cfu": 6,
@@ -32,7 +28,6 @@
         "courseType": "OPTIONAL"
     },
     {
-        "id": 5,
         "semester": 0,
         "examList": [11,12],
         "cfu": 6,
@@ -40,7 +35,6 @@
         "courseType": "COMPULSORY"
     },
     {
-        "id": 6,
         "semester": 1,
         "examList": [13],
         "cfu": 6,

@@ -1,132 +1,80 @@
 [
   {
-    "id": 1,
     "name": "Analisi del software - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-10",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 2,
     "name": "Analisi del software - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-09-20",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 3,
     "name": "Analisi del software - Exam 3",
     "examTypeMethod": "LABORATORY",
     "examDate": "2024-01-10",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 4,
     "name": "Basi di dati avanzate - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-05",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 5,
     "name": "Basi di dati avanzate - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-06-18",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 6,
     "name": "Basi di dati avanzate - Exam 3",
     "examTypeMethod": "LABORATORY",
     "examDate": "2024-01-12",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 7,
     "name": "Cybersecurity e protezione dati - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-15",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 8,
     "name": "Cybersecurity e protezione dati - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-07-10",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 9,
     "name": "Progettazione e validazione di sistemi software - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-20",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 10,
     "name": "Progettazione e validazione di sistemi software - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2024-02-02",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 11,
     "name": "Sicurezza del software - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-10",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 12,
     "name": "Sicurezza del software - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-07-25",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   },
   {
-    "id": 13,
     "name": "Sistemi informativi aziendali - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-07-15",
-    "daysBeforeDeadLine": 2,
-    "grade": null,
-    "status": null,
-    "registrationDate": null
+    "daysBeforeDeadLine": 2
   }
 ]

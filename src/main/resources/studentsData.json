@@ -1,6 +1,5 @@
 [
     {
-      "id": 1,
       "firstname": "Mariano",
       "lastname": "Ceccato",
       "telephoneNumber": "123-456-7890",
@@ -13,7 +12,6 @@
       "roleType": "PROFESSOR"
     },
     {
-      "id": 2,
       "firstname": "Jane",
       "lastname": "Smith",
       "telephoneNumber": "987-654-3210",
@@ -26,7 +24,6 @@
       "roleType": "STUDENT"
     },
     {
-      "id": 3,
       "firstname": "Alice",
       "lastname": "Johnson",
       "telephoneNumber": "555-123-4567",
@@ -39,7 +36,6 @@
       "roleType": "STUDENT"
     },
     {
-      "id": 4,
       "firstname": "Bob",
       "lastname": "Williams",
       "telephoneNumber": "111-222-3333",
@@ -52,7 +48,6 @@
       "roleType": "STUDENT"
     },
     {
-      "id": 5,
       "firstname": "Eva",
       "lastname": "Davis",
       "telephoneNumber": "444-555-6666",
