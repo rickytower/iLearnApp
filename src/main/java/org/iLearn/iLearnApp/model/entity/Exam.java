@@ -34,10 +34,12 @@ public class Exam {
 
     }
     @JsonCreator
-    public Exam(@JsonProperty("name") String name,
+    public Exam(@JsonProperty("id")Long id,
+                @JsonProperty("name") String name,
                 @JsonProperty("examTypeMethod") ExamTypeMethod examTypeMethod,
                 @JsonProperty("examDate") Date examDate
     ) {
+        this.id = id;
         this.name = name;
         this.examDate = examDate;
         this.examTypeMethod = examTypeMethod;

@@ -2,8 +2,10 @@ package org.iLearn.iLearnApp;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.iLearn.iLearnApp.model.entity.Course;
 import org.iLearn.iLearnApp.model.entity.Exam;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
+import org.iLearn.iLearnApp.model.repository.CourseRepository;
 import org.iLearn.iLearnApp.model.repository.ExamRepository;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,14 @@ public class Utils {
     // Specify the path to your JSON file
     private static final String studentsFilePath = "src/main/resources/studentsData.json";
     private static final String examsFilePath = "src/main/resources/examsData.json";
+    private static final String coursesFilePath = "src/main/resources/coursesData.json";
 
     @Autowired
     private UserRegistredRepository userRegistredRepository;
     @Autowired
     private ExamRepository examRepository;
+    @Autowired
+    private CourseRepository courseRepository;
 
     public void initDB() throws IOException {
         /*Deserializzare il json → popolare il db*/
@@ -33,14 +38,20 @@ public class Utils {
         });
         List<Exam> examList = objectMapper.readValue(new File(examsFilePath), new TypeReference<List<Exam>>() {
         });
+        List<Course> courseList = objectMapper.readValue(new File(coursesFilePath), new TypeReference<List<Course>>() {
+        });
 
         userRegistredRepository.saveAll(userRegistredList);
         examRepository.saveAll(examList);
-
+        courseRepository.saveAll(courseList);
     }
 
     public UserRegistredRepository getUserRegistredRepository() {
         return userRegistredRepository;
+    }
+
+    public CourseRepository getCourseRepository() {
+        return courseRepository;
     }
 
     public ExamRepository getExamRepository() {

@@ -1,65 +1,78 @@
 [
   {
+    "id": 1,
     "name": "Analisi del software - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-10"
   },
   {
+    "id": 2,
     "name": "Analisi del software - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-09-20"
   },
   {
+    "id": 3,
     "name": "Analisi del software - Exam 3",
     "examTypeMethod": "LABORATORY",
     "examDate": "2024-01-10"
   },
   {
+    "id": 4,
     "name": "Basi di dati avanzate - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-05"
   },
   {
+    "id": 5,
     "name": "Basi di dati avanzate - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-06-18"
   },
   {
+    "id": 6,
     "name": "Basi di dati avanzate - Exam 3",
     "examTypeMethod": "LABORATORY",
     "examDate": "2024-01-12"
   },
   {
+    "id": 7,
     "name": "Cybersecurity e protezione dati - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-15"
   },
   {
+    "id": 8,
     "name": "Cybersecurity e protezione dati - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-07-10"
   },
   {
+    "id": 9,
     "name": "Progettazione e validazione di sistemi software - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-20"
   },
   {
+    "id": 10,
     "name": "Progettazione e validazione di sistemi software - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2024-02-02"
   },
   {
+    "id": 11,
     "name": "Sicurezza del software - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-02-10"
   },
   {
+    "id": 12,
     "name": "Sicurezza del software - Exam 2",
     "examTypeMethod": "ORAL",
     "examDate": "2023-07-25"
   },
   {
+    "id": 13,
     "name": "Sistemi informativi aziendali - Exam 1",
     "examTypeMethod": "WRITTEN",
     "examDate": "2023-07-15"

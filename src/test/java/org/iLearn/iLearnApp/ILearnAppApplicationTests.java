@@ -1,6 +1,7 @@
 package org.iLearn.iLearnApp;
 
 import io.restassured.RestAssured;
+import org.iLearn.iLearnApp.model.entity.Course;
 import org.iLearn.iLearnApp.model.entity.Exam;
 import org.iLearn.iLearnApp.model.entity.RoleType;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
@@ -43,8 +44,10 @@ class ILearnAppApplicationTests {
     public void initDBTest() {
         List<UserRegistred> userRegistredList = (List<UserRegistred>) utils.getUserRegistredRepository().findAll();
         List<Exam> examList = (List<Exam>) utils.getExamRepository().findAll();
+        List<Course> courseList = (List<Course>) utils.getCourseRepository().findAll();
         assertEquals(userRegistredList.size(), 5);
         assertEquals(examList.size(), 13);
+        assertEquals(courseList.size(), 6);
     }
 
 }
