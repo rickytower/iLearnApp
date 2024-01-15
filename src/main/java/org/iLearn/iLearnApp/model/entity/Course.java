@@ -2,10 +2,7 @@ package org.iLearn.iLearnApp.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 @Entity
@@ -21,6 +18,7 @@ public class Course {
     /**
      * Rappresents the list of exam for each course
      */
+    @OneToMany(mappedBy = "course")
     private List<Exam> examList;
 
     /**

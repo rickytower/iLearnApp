@@ -2,10 +2,7 @@ package org.iLearn.iLearnApp.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -21,6 +18,8 @@ public class Exam {
     private String name;
     private ExamTypeMethod examTypeMethod;
     private Date examDate;
+    @ManyToOne
+    private Course course;
 
     /**
      * It is used to calculate the day on which the enrollment for the exam will close.
