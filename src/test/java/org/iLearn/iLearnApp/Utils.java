@@ -31,6 +31,15 @@ public class Utils {
     @Autowired
     private CourseRepository courseRepository;
 
+    /**
+     * Function used to initialize different data from the json files.
+     *
+     * In particular:
+     *      - List<UserRegistred>
+     *      - List<Exam>
+     *      - List<Course>
+     * @throws IOException
+     */
     public void initDB() throws IOException {
         /*Deserializzare il json → popolare il db*/
         ObjectMapper objectMapper = new ObjectMapper();
