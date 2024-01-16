@@ -30,6 +30,16 @@ class SystemTest extends BaseTest{
      * Check if all the users in the json are correctly insert in the db
      * IN particular, they shall be 5.
      */
+    @BeforeEach
+    public void setUp() {
+        RestAssured.baseURI = "http://localhost:8080";
+        try {
+            utils.initDB();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+    }
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void initDBTest() {

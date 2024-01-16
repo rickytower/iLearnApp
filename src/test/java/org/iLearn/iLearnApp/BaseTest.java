@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -42,8 +43,6 @@ public abstract class BaseTest {
         }
         if (driver == null)
             driver = new FirefoxDriver(firefox_options);
-        RestAssured.baseURI = "http://localhost:8080";
-        utils.initDB();
     }
 
 
