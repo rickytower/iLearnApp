@@ -20,7 +20,7 @@ import static io.restassured.RestAssured.given;
 @Component
 public class Utils {
     // Specify the path to your JSON file
-    private static final String studentsFilePath = "src/main/resources/studentsData.json";
+    private static final String studentsFilePath = "src/main/resources/usersRegistredData.json";
     private static final String examsFilePath = "src/main/resources/examsData.json";
     private static final String coursesFilePath = "src/main/resources/coursesData.json";
 

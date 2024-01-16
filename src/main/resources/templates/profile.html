@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iLearn - Login</title>
+    <title>iLearn - Profile</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 
-<header>
+<header id="mainHeader">
 
     <h1>iLearn</h1>
 
 </header>
-<div>
+<div id="profileSection">
     <h2>Profile</h2>
     <p>
-        Hello dear <span>FIRSTNAME</span>,
+        Hello dear <span id="firstname" th:text="${student.firstname}"></span>,<br/>
 
         In this section, you can view your personal information and update it. However, please note that you cannot
         update your name or family name by yourself. If you need to make changes to these details, please contact the
-        student office for assistance.
+        student office for assistance.<br/>
 
         The student ID is automatically generated and does not need to be updated.
     </p>
@@ -28,7 +28,7 @@
 
 <div>
     <!-- FINAL DATA-->
-    <table>
+    <table id="finalDataTable">
         <tr>
             <th>USERNAME</th>
             <th>FIRSTNAME</th>
@@ -37,16 +37,15 @@
             <th>STUDENT ID</th>
         </tr>
         <tr>
-            <td><span th:text="${student.username}"></span></td>
-            <td><span th:text="${student.firstname}"></span></td>
-            <td><span th:text="${student.lastname}"></span></td>
-            <td><span th:text="${student.fiscalCode}"></span></td>
-            <td><span th:text="${student.id}"></span></td>
+            <td><span id="username" th:text="${student.username}"></span></td>
+            <td><span id="firstnameAndLastname" th:text="${student.firstname} ${student.lastname}"></span></td>
+            <td><span id="fiscalCode" th:text="${student.fiscalCode}"></span></td>
+            <td><span id="studentId" th:text="${student.id}"></span></td>
         </tr>
     </table>
 
     <!-- CHANGABLE DATA-->
-    <table>
+    <table id="changeableDataTable">
         <tr>
             <th>EMAIL</th>
             <th>CELLULAR</th>
@@ -55,18 +54,18 @@
             <th>ACTION</th>
         </tr>
         <tr>
-            <td><span th:text="${student.email}"></span></td>
-            <td><span th:text="${student.telephoneNumber}"></span></td>
-            <td><span th:text="${student.address}"></span></td>
-            <td><span th:text="${student.city}"></span></td>
+            <td><span id="email" th:text="${student.email}"></span></td>
+            <td><span id="telephoneNumber" th:text="${student.telephoneNumber}"></span></td>
+            <td><span id="address" th:text="${student.address}"></span></td>
+            <td><span id="city" th:text="${student.city}"></span></td>
             <td>
-                <button><a href="edit?id=10" th:href="@{edit(id=${person.id})}"> EDIT DATA </a></button>
+                <button id="editButton"><a href="profile_edit" th:href="@{edit(id=${person.id})}"> EDIT DATA </a></button>
             </td>
         </tr>
     </table>
 
 </div>
-<footer>
+<footer id="mainFooter">
     <p>2024 iLearn - All rights reserved</p>
 </footer>
 

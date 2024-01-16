@@ -1,42 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iLearn - Login</title>
+    <title>iLearn - Profile</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 
-<header>
+<header id="mainHeader">
 
     <h1>iLearn</h1>
 
 </header>
 
-<section>
-    <h2>Login</h2>
+<section id="profile_edit_section">
+    <h2>Profile edit</h2>
+
     <p style="text-align:left;">
         Insert the data that you want to change here:
     </p>
-    <form action="profile_edit">
-        <label for="email">EMAIL:</label>
-        <input type="text" id="email" name="email" required>
 
-        <label for="telephoneNumber">CELLULAR:</label>
-        <input type="text" id="telephoneNumber" name="telephoneNumber" required>
+    <form id="profile_edit_form" action="profile_edit">
+        <label for="emailInput" id="emailLabel">EMAIL:</label>
+        <input type="text" id="emailInput" name="email" required>
 
-        <label for="address">ADDRESS:</label>
-        <input type="text" id="address" name="address" required>
+        <label for="telephoneNumberInput" id="telephoneNumberLabel" >CELLULAR:</label>
+        <input type="text" id="telephoneNumberInput" name="telephoneNumber" required>
 
-        <label for="city">CITY:</label>
-        <input type="text" id="city" name="city" required>
+        <label for="addressInput" id="addressLabel">ADDRESS:</label>
+        <input type="text" id="addressInput" name="address" required>
 
-        <button type="submit">Send the data</button>
+        <label for="cityInput" id="cityLabel">CITY:</label>
+        <input type="text" id="cityInput" name="city" required>
+
+        <button type="submit" id="submitButton">Send the data</button>
     </form>
 </section>
 
-<footer>
+<footer id="mainFooter">
     <p>2024 iLearn - All rights reserved</p>
 </footer>
 
