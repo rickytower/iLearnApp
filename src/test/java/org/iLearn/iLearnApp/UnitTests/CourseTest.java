@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CourseTest {
 
     Course tmpCourse = new Course(
-            1,
+            0,
             new ArrayList<>(),
             5,
             "Mathematics",
@@ -38,8 +38,8 @@ public class CourseTest {
 
     @Test
     public void testSetSemester() {
-        tmpCourse.setSemester(2);
-        assertEquals(2, tmpCourse.getSemester());
+        tmpCourse.setSemester(1);
+        assertEquals(1, tmpCourse.getSemester());
     }
 
     @Test
