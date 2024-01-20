@@ -21,4 +21,36 @@ public class StudentCareer {
     private List<Course> teachingPlan;
     private List<Exam> recordBook;
     private List<Integer> taxes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Course> getTeachingPlan() {
+        return teachingPlan;
+    }
+
+    public void setTeachingPlan(List<Course> teachingPlan) {
+        this.teachingPlan = teachingPlan;
+    }
+
+    public List<Exam> getRecordBook() {
+        return recordBook;
+    }
+
+    public void setRecordBook(List<Exam> recordBook) {
+        this.recordBook = recordBook;
+    }
+
+    public List<Integer> getTaxes() {
+        return taxes;
+    }
+
+    public void setTaxes(List<Integer> taxes) {
+        this.taxes = taxes;
+    }
 }

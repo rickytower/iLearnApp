@@ -8,6 +8,14 @@ import java.util.Optional;
 public interface UserRegistredRepository extends CrudRepository<UserRegistred, Long>{
 
     /**
+     * Return the user in the repo with the correspondent username.
+     *
+     * @param username
+     * @return
+     */
+    Optional<UserRegistred> findByUsername(String username);
+
+    /**
      * Return the user in the repo with the correspondent password and username.
      *
      * @param username
