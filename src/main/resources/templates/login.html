@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLearn - Login</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
 </head>
 <body>
 
@@ -16,12 +16,6 @@
 
 <section>
     <h2>Login</h2>
-    <p style="text-align:center;">
-        WELCOME TO iLEARN
-
-        To access the system, please, provide your
-        email and password
-    </p>
     <form action="login">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>

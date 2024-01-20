@@ -36,8 +36,7 @@ public class SystemTest extends BaseTest {
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD)
     public void login() {
-        driver.get("http://localhost:8080");
-        System.out.println(driver);
+        driver.get(getBaseUrl());
         LoginObject loginObject = new LoginObject(driver);
         loginObject.loginUser("mariano","ceccato");
         loginObject.submit(driver);

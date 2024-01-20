@@ -19,7 +19,6 @@ public abstract class BaseTest {
     @Autowired
     protected Utils utils;
     protected static WebDriver driver;
-    private final String baseUrl = "http://localhost/8080";
 
     @BeforeAll
     public static void setUp() {
@@ -46,7 +45,7 @@ public abstract class BaseTest {
     }
 
     public String getBaseUrl() {
-        return baseUrl;
+        return "http://localhost:8080";
     }
 
     @AfterAll

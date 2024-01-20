@@ -9,7 +9,7 @@ public class LoginObject extends PageObject {
     private WebElement username;
     @FindBy(xpath = "//input[@id='password']")
     private WebElement password;
-    @FindBy(xpath = "//input[@type='submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement submit;
 
     public LoginObject(WebDriver driver) {
