@@ -4,13 +4,16 @@ import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 public class AppController {
     @Autowired
-
     private UserRegistredRepository userRegistredRepository;
 
     @RequestMapping("/")
@@ -29,11 +32,19 @@ public class AppController {
         if (userRegistredRepository.findByUsernameAndPassword(username, password).isPresent()) {
             UserRegistred userRegistred = userRegistredRepository.findByUsernameAndPassword(username, password).get();
             if (username.equals(userRegistred.getUsername()) && password.equals(userRegistred.getPassword())) {
-                return "profile";
+                return "redirect:/profile/" + userRegistred.getId();
             }
         } else {
             System.out.println("Username / Password wrong. Please check the credentials.");
         }
         return "login";
     }
+
+    @RequestMapping("/profile/{id}")
+    public String profilePage(@PathVariable("id") Long id, Model model) {
+        Optional<UserRegistred> userRegistred = userRegistredRepository.findById(id);
+        userRegistred.ifPresent(user -> model.addAttribute("userRegistred", user));
+        return "profile";
+    }
+
 }

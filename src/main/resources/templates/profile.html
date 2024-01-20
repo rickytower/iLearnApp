@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLearn - Profile</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 <div id="profileSection">
     <h2>Profile</h2>
     <p>
-        Hello dear <span id="firstname" th:text="${student.firstname}"></span>,<br/>
+        Hello dear <span id="firstname" th:text="${userRegistred.firstname}"></span>,<br/>
 
         In this section, you can view your personal information and update it. However, please note that you cannot
         update your name or family name by yourself. If you need to make changes to these details, please contact the
@@ -25,7 +25,6 @@
         The student ID is automatically generated and does not need to be updated.
     </p>
 </div>
-
 <div>
     <!-- FINAL DATA-->
     <table id="finalDataTable">
@@ -37,10 +36,12 @@
             <th>STUDENT ID</th>
         </tr>
         <tr>
-            <td><span id="username" th:text="${student.username}"></span></td>
-            <td><span id="firstnameAndLastname" th:text="${student.firstname} ${student.lastname}"></span></td>
-            <td><span id="fiscalCode" th:text="${student.fiscalCode}"></span></td>
-            <td><span id="studentId" th:text="${student.id}"></span></td>
+            <td><span id="username" th:text="${userRegistred.username}"></span></td>
+            <td>
+                <span id="tabfirstname" th:text="${userRegistred.firstname}"></span> <span id="lastname" th:text="${userRegistred.lastname}"></span>
+            </td>
+            <td><span id="fiscalCode" th:text="${userRegistred.fiscalCode}"></span></td>
+            <td><span id="studentId" th:text="${userRegistred.id}"></span></td>
         </tr>
     </table>
 
@@ -54,12 +55,12 @@
             <th>ACTION</th>
         </tr>
         <tr>
-            <td><span id="email" th:text="${student.email}"></span></td>
-            <td><span id="telephoneNumber" th:text="${student.telephoneNumber}"></span></td>
-            <td><span id="address" th:text="${student.address}"></span></td>
-            <td><span id="city" th:text="${student.city}"></span></td>
+            <td><span id="email" th:text="${userRegistred.email}"></span></td>
+            <td><span id="telephoneNumber" th:text="${userRegistred.telephoneNumber}"></span></td>
+            <td><span id="address" th:text="${userRegistred.address}"></span></td>
+            <td><span id="city" th:text="${userRegistred.city}"></span></td>
             <td>
-                <button id="editButton"><a href="profile_edit" th:href="@{edit(id=${person.id})}"> EDIT DATA </a></button>
+                <button id="editButton"><a href="profile_edit" th:href="@{edit(id=${userRegistred.id})}"> EDIT DATA </a></button>
             </td>
         </tr>
     </table>
@@ -68,6 +69,5 @@
 <footer id="mainFooter">
     <p>2024 iLearn - All rights reserved</p>
 </footer>
-
 </body>
 </html>
