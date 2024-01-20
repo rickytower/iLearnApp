@@ -2,6 +2,7 @@ package org.iLearn.iLearnApp;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.catalina.User;
 import org.iLearn.iLearnApp.model.entity.Course;
 import org.iLearn.iLearnApp.model.entity.Exam;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
@@ -41,19 +42,23 @@ public class Utils {
      *      - List<Course>
      * @throws IOException
      */
-    public void initDB() throws IOException {
+    public void initDB(){
         /*Deserializzare il json → popolare il db*/
         ObjectMapper objectMapper = new ObjectMapper();
-        List<UserRegistred> userRegistredList = objectMapper.readValue(new File(studentsFilePath), new TypeReference<List<UserRegistred>>() {
-        });
-        List<Exam> examList = objectMapper.readValue(new File(examsFilePath), new TypeReference<List<Exam>>() {
-        });
-        List<Course> courseList = objectMapper.readValue(new File(coursesFilePath), new TypeReference<List<Course>>() {
-        });
 
-        userRegistredRepository.saveAll(userRegistredList);
-        examRepository.saveAll(examList);
-        courseRepository.saveAll(courseList);
+        try {
+            List<UserRegistred> userRegistredList = objectMapper.readValue(new File(studentsFilePath), new TypeReference<>() {
+            });
+            List<Exam> examList = objectMapper.readValue(new File(examsFilePath), new TypeReference<>() {
+            });
+            List<Course> courseList = objectMapper.readValue(new File(coursesFilePath), new TypeReference<>() {
+            });
+            userRegistredRepository.saveAll(userRegistredList);
+            examRepository.saveAll(examList);
+            courseRepository.saveAll(courseList);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     public UserRegistredRepository getUserRegistredRepository() {

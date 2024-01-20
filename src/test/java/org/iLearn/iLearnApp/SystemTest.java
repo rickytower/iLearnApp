@@ -28,9 +28,9 @@ public class SystemTest extends BaseTest {
         List<UserRegistred> userRegistredList = (List<UserRegistred>) utils.getUserRegistredRepository().findAll();
         List<Exam> examList = (List<Exam>) utils.getExamRepository().findAll();
         List<Course> courseList = (List<Course>) utils.getCourseRepository().findAll();
-        assertEquals(userRegistredList.size(), 5);
-        assertEquals(examList.size(), 13);
-        assertEquals(courseList.size(), 6);
+        assertEquals(5,userRegistredList.size() );
+        assertEquals(13,examList.size() );
+        assertEquals(6, courseList.size());
     }
 
     @Test
