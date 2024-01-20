@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html lang="en" xmlns:th="http://www.thymeleaf.org">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>iLearn - Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLearn - Exams book</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 
@@ -19,12 +15,12 @@
 </header>
 <div>
     <h2>Exam</h2>
-    <p>
-
-        Dear <span></span>
-        Here you can:
-        See the list of accepted grades;
-        Accept or decline a grade of a specific exams that you had sustained.
+    <p>Dear <span id="firstname" th:text="${userRegistred.firstname}"></span>,<br/>
+        In this section you can:
+        <ul>
+            <li>See the list of accepted grades; </li>
+            <li>Accept or decline a grade of a specific exams that you had sustained. </li>
+        </ul>
     </p>
 </div>
 
@@ -34,16 +30,16 @@
         <tr>
             <th>EXAM NAME</th>
             <th>PROF. NAME</th>
-            <th>ACCEPTANCE DATE</th>
-            <th>EXAM DATE</th>
+            <th>DATE</th>
+            <th>CFU</th>
             <th>GRADE</th>
         </tr>
-        <tr>
-            <td><span></span></td>
-            <td><span></span></td>
-            <td><span></span></td>
-            <td><span></span></td>
-            <td><span></span></td>
+        <tr th:each="exam: ${acceptedExams}">
+            <td th:text="${acceptedExams.name}" />
+            <td th:text="${acceptedExams.course.profName}" />
+            <td th:text="${acceptedExams.examDate}" />
+            <td th:text="${acceptedExams.course.cfu}" />
+            <td th:text="${acceptedExams.grade}" />
         </tr>
     </table>
 
@@ -52,16 +48,21 @@
         <tr>
             <th>EXAM NAME</th>
             <th>PROF. NAME</th>
+            <th>DATE</th>
+            <th>CFU</th>
             <th>GRADE</th>
-            <th>EXAM DATE</th>
-            <th>ACCPET/DECLINE ACTION</th>
+            <th>ACCPET/DECLINE?</th>
         </tr>
-        <tr>
-            <td><span></span></td>
-            <td><span></span></td>
-            <td><span></span></td>
-            <td><span></span></td>
-            <td><span></span></td>
+        <tr th:each="exam: ${pendingExams}">
+            <td th:text="${pendingExams.name}" />
+            <td th:text="${pendingExams.course.profName}" />
+            <td th:text="${pendingExams.examDate}" />
+            <td th:text="${pendingExams.course.cfu}" />
+            <td th:text="${pendingExams.grade}" />
+            <td>
+                <button th:id="'acceptExamButton_' + ${exam.id}" th:onclick="'acceptExamAction(' + ${exam.id} + ')'" >ACCEPT</button><br/>
+                <button th:id="'declineExamButton_' + ${exam.id}" th:onclick="'declineExamAction(' + ${exam.id} + ')'" >DECLINE</button>
+            </td>
         </tr>
     </table>
 </div>
