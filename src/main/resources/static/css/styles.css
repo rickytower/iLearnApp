@@ -23,7 +23,7 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 8px;
-    max-width: 400px;
+    max-width: 80%;
     width: 100%;
 }
 
@@ -57,4 +57,31 @@ footer {
     padding: 1em;
     width: 100%;
     margin-top: auto;
+}
+
+/* Add these styles to your existing CSS */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
 }

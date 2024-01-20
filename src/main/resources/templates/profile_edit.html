@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLearn - Profile</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 
@@ -19,6 +19,8 @@
 
     <p style="text-align:left;">
         Insert the data that you want to change here:
+
+        N.B.: To save the changes you have to complete and save all the down table:
     </p>
 
     <form id="profile_edit_form" action="profile_edit">
