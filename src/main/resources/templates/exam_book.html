@@ -35,11 +35,11 @@
             <th>GRADE</th>
         </tr>
         <tr th:each="exam: ${acceptedExams}">
-            <td th:text="${acceptedExams.name}" />
-            <td th:text="${acceptedExams.course.profName}" />
-            <td th:text="${acceptedExams.examDate}" />
-            <td th:text="${acceptedExams.course.cfu}" />
-            <td th:text="${acceptedExams.grade}" />
+            <td th:text="${exam.name}" />
+            <td th:text="${exam.course.profName}" />
+            <td th:text="${exam.examDate}" />
+            <td th:text="${exam.course.cfu}" />
+            <td th:text="${exam.grade}" />
         </tr>
     </table>
 
@@ -54,11 +54,11 @@
             <th>ACCPET/DECLINE?</th>
         </tr>
         <tr th:each="exam: ${pendingExams}">
-            <td th:text="${pendingExams.name}" />
-            <td th:text="${pendingExams.course.profName}" />
-            <td th:text="${pendingExams.examDate}" />
-            <td th:text="${pendingExams.course.cfu}" />
-            <td th:text="${pendingExams.grade}" />
+            <td th:text="${exam.name}" />
+            <td th:text="${exam.course.profName}" />
+            <td th:text="${exam.examDate}" />
+            <td th:text="${exam.course.cfu}" />
+            <td th:text="${exam.grade}" />
             <td>
                 <button th:id="'acceptExamButton_' + ${exam.id}" th:onclick="'acceptExamAction(' + ${exam.id} + ')'" >ACCEPT</button><br/>
                 <button th:id="'declineExamButton_' + ${exam.id}" th:onclick="'declineExamAction(' + ${exam.id} + ')'" >DECLINE</button>

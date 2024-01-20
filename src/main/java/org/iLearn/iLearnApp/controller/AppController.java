@@ -1,4 +1,4 @@
-package org.iLearn.iLearnApp;
+package org.iLearn.iLearnApp.controller;
 
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
@@ -38,13 +38,6 @@ public class AppController {
             System.out.println("Username / Password wrong. Please check the credentials.");
         }
         return "login";
-    }
-
-    @RequestMapping("/profile/{id}")
-    public String profilePage(@PathVariable("id") Long id, Model model) {
-        Optional<UserRegistred> userRegistred = userRegistredRepository.findById(id);
-        userRegistred.ifPresent(user -> model.addAttribute("userRegistred", user));
-        return "profile";
     }
 
 }
