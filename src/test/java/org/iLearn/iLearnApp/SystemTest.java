@@ -6,7 +6,6 @@ import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.pageObjects.LoginObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.DependsOn;
-import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 
@@ -21,20 +20,17 @@ public class SystemTest extends BaseTest {
      * IN particular, they shall be 5.
      */
 
-
     @Test
-    @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD)
     public void initDBTest() {
-        List<UserRegistred> userRegistredList = (List<UserRegistred>) utils.getUserRegistredRepository().findAll();
-        List<Exam> examList = (List<Exam>) utils.getExamRepository().findAll();
-        List<Course> courseList = (List<Course>) utils.getCourseRepository().findAll();
+        List<UserRegistred> userRegistredList = (List<UserRegistred>) DBUtils.getUserRegistredRepository().findAll();
+        List<Exam> examList = (List<Exam>) DBUtils.getExamRepository().findAll();
+        List<Course> courseList = (List<Course>) DBUtils.getCourseRepository().findAll();
         assertEquals(5,userRegistredList.size() );
         assertEquals(13,examList.size() );
         assertEquals(6, courseList.size());
     }
 
     @Test
-    @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD)
     public void login() {
         driver.get(getBaseUrl());
         LoginObject loginObject = new LoginObject(driver);

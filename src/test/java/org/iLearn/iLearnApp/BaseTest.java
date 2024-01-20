@@ -8,8 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 
 
@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 public abstract class BaseTest {
 
     @Autowired
-    protected Utils utils;
+    protected DBUtils DBUtils;
     protected static WebDriver driver;
 
     @BeforeAll
@@ -40,8 +40,10 @@ public abstract class BaseTest {
             driver = new FirefoxDriver(firefox_options);
     }
     @BeforeEach
-    void reinitializeDB() throws IOException {
-        utils.initDB();
+    @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD)
+    void reinitializeDB(){
+        DBUtils.dropDataDB();
+        DBUtils.initDB();
     }
 
     public String getBaseUrl() {

@@ -2,7 +2,7 @@ package org.iLearn.iLearnApp;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.catalina.User;
+import jakarta.annotation.PostConstruct;
 import org.iLearn.iLearnApp.model.entity.Course;
 import org.iLearn.iLearnApp.model.entity.Exam;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
@@ -16,10 +16,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-
 @Component
-public class Utils {
+public class DBUtils {
     // Specify the path to your JSON file
     private static final String jsonPath = "src/main/resources/jsonData/";
     private static final String studentsFilePath = jsonPath + "usersRegistredData.json";
@@ -40,8 +38,8 @@ public class Utils {
      *      - List<UserRegistred>
      *      - List<Exam>
      *      - List<Course>
-     * @throws IOException
      */
+    @PostConstruct
     public void initDB(){
         /*Deserializzare il json → popolare il db*/
         ObjectMapper objectMapper = new ObjectMapper();
@@ -71,5 +69,11 @@ public class Utils {
 
     public ExamRepository getExamRepository() {
         return examRepository;
+    }
+
+    public void dropDataDB() {
+        userRegistredRepository.deleteAll();
+        courseRepository.deleteAll();
+        examRepository.deleteAll();
     }
 }
