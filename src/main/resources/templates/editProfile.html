@@ -23,8 +23,8 @@
         N.B.: To save the changes you have to complete and save all the down table:
     </p>
 
-    <form id="profile_edit_form">
-        <label for="emailInput" id="emailLabel">EMAIL:</label>
+    <form id="profile_edit_form" th:action="@{'/editProfile/' + ${userRegistred.id}}" method="post">
+        <<label for="emailInput" id="emailLabel">EMAIL:</label>
         <input type="text" id="emailInput" name="email" required>
 
         <label for="telephoneNumberInput" id="telephoneNumberLabel" >CELLULAR:</label>

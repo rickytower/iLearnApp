@@ -5,9 +5,7 @@ import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -23,21 +21,43 @@ public class ProfileController {
         return "profile";
     }
 
-    @RequestMapping("/profile/{id}/edit")
-    public String profileEditPage(@PathVariable("id") Long id, @RequestParam("email") String email,
-                                  @RequestParam("telephoneNumber") String telephoneNumber, @RequestParam("address") String address,
-                                  @RequestParam("city") String city,
-                                  Model model) {
-        Optional<UserRegistred> userRegistred = userRegistredRepository.findById(id);
-        if(userRegistred.isPresent()){
-            UserRegistred u = userRegistred.get();
-            u.setEmail(email);
-            u.setAddress(address);
-            u.setCity(city);
-            u.setTelephoneNumber(telephoneNumber);
-            userRegistredRepository.save(u);
-            return "profile";
+    // Page redirect
+    @GetMapping("/editProfile/{id}")
+    public String profileEdit(@PathVariable Long id, Model model) {
+        Optional<UserRegistred> optionalUserRegistred = userRegistredRepository.findById(id);
+
+        if (optionalUserRegistred.isPresent()) {
+            UserRegistred user = optionalUserRegistred.get();
+            model.addAttribute("userRegistred", user);
+            model.addAttribute("email", user.getEmail());
+            return "editProfile";
+        } else {
+            return "profile_not_found";
         }
-        return null;
+    }
+
+    // Form submission
+    @PostMapping("/editProfile/{id}")
+    public String handleProfileEdit(@PathVariable("id") Long id,
+                                    @RequestParam("email") String email,
+                                    @RequestParam("telephoneNumber") String telephoneNumber,
+                                    @RequestParam("address") String address,
+                                    @RequestParam("city") String city,
+                                    Model model) {
+        Optional<UserRegistred> optionalUser = userRegistredRepository.findById(id);
+
+        if (optionalUser.isPresent()) {
+            UserRegistred user = optionalUser.get();
+            user.setEmail(email);
+            user.setAddress(address);
+            user.setCity(city);
+            user.setTelephoneNumber(telephoneNumber);
+            userRegistredRepository.save(user);
+            return "redirect:/profile/" + id;
+        } else {
+            // User not found, you can redirect to an error page or handle it as needed
+            return "profile_not_found";
+        }
     }
 }
+
