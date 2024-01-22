@@ -3,37 +3,46 @@ package org.iLearn.iLearnApp.model.entity;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
+
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class Course {
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     /**
-     * Rappresents the semester for each year, 0 for autumn, 1 for spring.
+     * Rappresents the semester (autumn or spring).
      */
-    private int semester;
+    @Enumerated(EnumType.STRING)
+    private Semester semester;
 
     /**
      * Rappresents the list of exam for each course
      */
-    @OneToMany(mappedBy = "course")
+    @OneToMany
     private List<Exam> examList;
 
     /**
      * Rappresents the total CFU for each course
      */
-    private int cfu;
+    private Integer cfu;
 
     private String courseName;
+    @Enumerated(EnumType.STRING)
     private CourseType courseType;
 
-    public Course() {
-    }
 
     @JsonCreator
-    public Course(@JsonProperty("semester") int semester,
+    public Course(@JsonProperty("semester") Semester semester,
                   @JsonProperty("examList") List<Exam> examList,
                   @JsonProperty("cfu") int cfu,
                   @JsonProperty("courseName") String courseName,
@@ -44,52 +53,6 @@ public class Course {
         this.courseName = courseName;
         this.courseType = courseType;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getSemester() {
-        return semester;
-    }
-
-    public void setSemester(int semester) {
-        this.semester = semester;
-    }
-
-    public List<Exam> getExamList() {
-        return examList;
-    }
-
-    public void setExamList(List<Exam> examList) {
-        this.examList = examList;
-    }
-
-    public int getCfu() {
-        return cfu;
-    }
-
-    public void setCfu(int cfu) {
-        this.cfu = cfu;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public CourseType getCourseType() {
-        return courseType;
-    }
-
-    public void setCourseType(CourseType courseType) {
-        this.courseType = courseType;
-    }
 }
+
+

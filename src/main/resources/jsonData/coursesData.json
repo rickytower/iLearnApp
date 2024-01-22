@@ -1,41 +1,41 @@
 [
     {
-        "semester": 0,
+        "semester": "AUTUMN",
         "examList": null,
         "cfu": 6,
         "courseName": "Analisi del software",
         "courseType": "COMPULSORY"
     },
     {
-        "semester": 1,
+        "semester": "SPRING",
         "examList": null,
         "cfu": 6,
         "courseName": "Basi di dati avanzate",
         "courseType": "COMPULSORY"
     },
     {
-        "semester": 0,
+        "semester": "AUTUMN",
         "examList": null,
         "cfu": 6,
         "courseName": "Cybersecurity e protezione dati",
         "courseType": "COMPULSORY"
     },
     {
-        "semester": 1,
+        "semester": "SPRING",
         "examList": null,
         "cfu": 6,
         "courseName": "Progettazione e validazione di sistemi software",
         "courseType": "OPTIONAL"
     },
     {
-        "semester": 0,
+        "semester": "AUTUMN",
         "examList": null,
         "cfu": 6,
         "courseName": "Sicurezza del software",
         "courseType": "COMPULSORY"
     },
     {
-        "semester": 1,
+        "semester": "SPRING",
         "examList": null,
         "cfu": 6,
         "courseName": "Sistemi informativi aziendali",

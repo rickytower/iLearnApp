@@ -17,7 +17,7 @@
     <div id="profileSection">
         <h2>Profile</h2>
         <p>
-            Hello dear <span id="firstname" th:text="${userRegistred.firstname}"></span>,<br/>
+            Hello dear <span id="firstname" th:text="${userRegistred.firstName}"></span>,<br/>
 
             In this section, you can view your personal information and update it. However, please note that you cannot
             update your name or family name by yourself. If you need to make changes to these details, please contact the
@@ -38,7 +38,7 @@
             <tr>
                 <td><span id="username" th:text="${userRegistred.username}"></span></td>
                 <td>
-                    <span id="tabfirstname" th:text="${userRegistred.firstname}"></span> <span id="lastname" th:text="${userRegistred.lastname}"></span>
+                    <span id="tabfirstname" th:text="${userRegistred.firstName}"></span> <span id="lastname" th:text="${userRegistred.lastName}"></span>
                 </td>
                 <td><span id="fiscalCode" th:text="${userRegistred.fiscalCode}"></span></td>
                 <td><span id="studentId" th:text="${userRegistred.id}"></span></td>

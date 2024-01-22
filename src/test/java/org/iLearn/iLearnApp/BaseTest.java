@@ -23,7 +23,7 @@ public abstract class BaseTest {
     @BeforeAll
     public static void setUp() {
         org.openqa.selenium.firefox.FirefoxOptions firefox_options = new FirefoxOptions();
-        firefox_options.addArguments("--headless");
+        //firefox_options.addArguments("--headless");
         if(SystemUtils.IS_OS_WINDOWS){
             System.setProperty("webdriver.gecko.driver",
                     Paths.get("src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe").toString());

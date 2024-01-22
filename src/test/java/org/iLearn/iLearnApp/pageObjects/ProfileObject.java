@@ -1,13 +1,11 @@
 package org.iLearn.iLearnApp.pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ProfileObject extends PageObject {
-    public ProfileObject(WebDriver driver){
-        super(driver);
-    }
 
     /**
      * Profile page elements
@@ -15,28 +13,49 @@ public class ProfileObject extends PageObject {
     @FindBy(xpath = "//button[@id=editButton]")
     private WebElement editButton;
 
+    @FindBy(xpath = "//span[@id=email]")
+    private WebElement email;
+
+    @FindBy(xpath = "//span[@id=telephoneNumber]")
+    private WebElement telephoneNumber;
+
+    @FindBy(xpath = "//span[@id=address]")
+    private WebElement address;
+
+    @FindBy(xpath = "//span[@id=city]")
+    private WebElement city;
+
 
     /**
      * Profile edit elements
      */
-    @FindBy(id = "//input[@id=emailInput]")
+    @FindBy(xpath = "//input[@id=emailInput]")
     private WebElement emailInput;
 
-    @FindBy(id = "//input[@id=telephoneNumberInput]")
+    @FindBy(xpath = "//input[@id=telephoneNumberInput]")
     private WebElement telephoneNumberInput;
 
-    @FindBy(id = "//input[@id=addressInput]")
+    @FindBy(xpath = "//input[@id=addressInput]")
     private WebElement addressInput;
 
-    @FindBy(id = "//input[@id=cityInput]")
+    @FindBy(xpath = "//input[@id=cityInput]")
     private WebElement cityInput;
 
-    @FindBy(id = "submitButton")
+    @FindBy(xpath = "//button[@id=submitButton]")
     private WebElement submitButton;
 
 
+    public ProfileObject(WebDriver driver){
+        super(driver);
+    }
 
 
+    /**
+     * Profile page action
+     */
+    public void clickEditButton(){
+        editButton.click();
+    }
     /**
      * Profile edit page action
      */
@@ -46,11 +65,11 @@ public class ProfileObject extends PageObject {
         clearAndType(telephoneNumberInput, phoneNumber);
         clearAndType(addressInput, address);
         clearAndType(cityInput, city);
+    }
+
+    public void submit(){
         submitButton.click();
     }
 
-    private void clearAndType(WebElement element, String text) {
-        element.clear();
-        element.sendKeys(text);
-    }
+
 }

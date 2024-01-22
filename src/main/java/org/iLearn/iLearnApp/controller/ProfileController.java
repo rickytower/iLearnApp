@@ -53,6 +53,7 @@ public class ProfileController {
             user.setCity(city);
             user.setTelephoneNumber(telephoneNumber);
             userRegistredRepository.save(user);
+            model.addAttribute("userRegistred",user);
             return "redirect:/profile/" + id;
         } else {
             // User not found, you can redirect to an error page or handle it as needed

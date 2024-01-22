@@ -3,7 +3,6 @@ package org.iLearn.iLearnApp;
 import org.iLearn.iLearnApp.model.entity.Course;
 import org.iLearn.iLearnApp.model.entity.Exam;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
-import org.iLearn.iLearnApp.pageObjects.LoginObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.DependsOn;
 
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @DependsOn("BaseTest")
-public class SystemTest extends BaseTest {
+public class DBTest extends BaseTest {
 
     /**
      * Check if all the users in the json are correctly insert in the db
@@ -28,14 +27,6 @@ public class SystemTest extends BaseTest {
         assertEquals(5,userRegistredList.size() );
         assertEquals(13,examList.size() );
         assertEquals(6, courseList.size());
-    }
-
-    @Test
-    public void login() {
-        driver.get(getBaseUrl());
-        LoginObject loginObject = new LoginObject(driver);
-        loginObject.loginUser("mariano","ceccato");
-        loginObject.submit(driver);
     }
 
 }

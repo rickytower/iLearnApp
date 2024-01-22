@@ -3,17 +3,25 @@ package org.iLearn.iLearnApp.model.entity;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.lang.reflect.Field;
 
 @Entity
+@NoArgsConstructor
+@Setter
+@Getter
 public class UserRegistred {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String telephoneNumber;
     private String fiscalCode;
     @Column(unique = true)
@@ -22,17 +30,15 @@ public class UserRegistred {
     private String address;
     private String city;
     private String email;
+    @Enumerated(EnumType.STRING)
     private RoleType roleType;
 
-    // Default constructor is needed for Jackson deserialization
-    public UserRegistred() {
-    }
 
     // Constructor with arguments for Jackson deserialization
     @JsonCreator
     public UserRegistred(
-            @JsonProperty("firstname") String firstname,
-            @JsonProperty("lastname") String lastname,
+            @JsonProperty("firstname") String firstName,
+            @JsonProperty("lastname") String lastName,
             @JsonProperty("telephoneNumber") String telephoneNumber,
             @JsonProperty("fiscalCode") String fiscalCode,
             @JsonProperty("username") String username,
@@ -41,8 +47,8 @@ public class UserRegistred {
             @JsonProperty("city") String city,
             @JsonProperty("email") String email,
             @JsonProperty("roleType") RoleType roleType) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.telephoneNumber = telephoneNumber;
         this.fiscalCode = fiscalCode;
         this.username = username;
@@ -52,102 +58,8 @@ public class UserRegistred {
         this.email = email;
         this.roleType = roleType;
     }
-
-    public UserRegistred(String id, String password) {
+    public UserRegistred(String firstName, String lastName, String telephoneNumber, String fiscalCode, String username, String password, String address, String city, RoleType roleType) {
     }
-
-    public UserRegistred(String firstname, String lastname, String telephoneNumber, String fiscalCode, String username, String password, String address, String city, RoleType roleType) {
-    }
-
-    // Getter & setters methods
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public String getFiscalCode() {
-        return fiscalCode;
-    }
-
-    public void setFiscalCode(String fiscalCode) {
-        this.fiscalCode = fiscalCode;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public RoleType getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(RoleType roleType) {
-        this.roleType = roleType;
-    }
-
     public String propertyToString() {
         StringBuilder stringBuilder = new StringBuilder();
 

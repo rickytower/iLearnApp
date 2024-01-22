@@ -17,12 +17,10 @@ public class LoginObject extends PageObject {
     }
 
     public void loginUser(String username, String password){
-        this.username.clear();
-        this.password.clear();
-        this.username.sendKeys(username);
-        this.password.sendKeys(password);
+      clearAndType(this.username, username);
+      clearAndType(this.password, password);
     }
-    public ProfileObject submit(WebDriver driver){
+    public ProfileObject submit(){
         submit.click();
         return new ProfileObject(driver);
     }
