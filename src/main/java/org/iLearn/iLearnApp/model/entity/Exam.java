@@ -10,6 +10,8 @@ import lombok.Setter;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
+
 @Entity
 @NoArgsConstructor
 @Setter
@@ -20,24 +22,25 @@ public class Exam {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    /**
-     * Can be taken by the course?
-     */
+    @ManyToMany
+    Set<Student> studentRegistred;
+
     private String name;
+
     @Enumerated(EnumType.STRING)
     private ExamTypeMethod examTypeMethod;
+
     private Date examDate;
+
     @ManyToOne
     private Course course;
 
     /**
      * It is used to calculate the day on which the enrollment for the exam will close.
-     * <p>
+     *
      * IE: exam date: 10 December,  daysBeforeDeadLine: 2 -> Exam registration closing day: 8 December.
      */
     private static final int daysBeforeDeadLine = 2;
-    private int grade;
-    private ExamStatus status;
 
     @JsonCreator
     public Exam(@JsonProperty("id")Long id,

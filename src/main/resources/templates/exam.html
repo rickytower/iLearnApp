@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLearn - Exam</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
 </head>
 <body>
 
@@ -14,17 +14,97 @@
 
 </header>
 <div>
-    <h2>Profile</h2>
-    <p>
-        Dear <span></span>,
-        Here you can access the 2 sections to:
-        See the list of exams and register to a specific date;
-        Accept or decline the grade that you have obtained and see the history of your exam.p>
+    <h2>Exam</h2>
+    <p>Dear <span id="firstname" th:text="${userRegistred.firstName}"></span>,<br/>
+        In this section you can:
+    <ul>
+        <li>See the list of accepted grades; </li>
+        <li>Accept or decline a grade of a specific exams that you had sustained; </li>
+        <li>See the available exams in which you can enroll.</li>
+    </ul>
+    </p>
 </div>
 
-<div>
-    <a href="/exam_list">See your exams list and enroll to them.</a>
-    <a href="/exam_book">See the exams that you had done and accept or decline the grade.</a>
+<div id="PastExamTable">
+    <h3>Old exam</h3>
+    <!-- ACCEPTED EXAM-->
+    <table>
+        <tr>
+            <th>EXAM NAME</th>
+            <th>PROF. NAME</th>
+            <th>DATE</th>
+            <th>CFU</th>
+            <th>GRADE</th>
+        </tr>
+        <tr th:each="exam: ${acceptedExams}">
+            <td th:text="${exam.name}" />
+            <td th:text="${exam.course.profName}" />
+            <td th:text="${exam.examDate}" />
+            <td th:text="${exam.course.cfu}" />
+            <td th:text="${exam.grade}" />
+        </tr>
+    </table>
+
+    <!-- PENDING EXAMS-->
+    <table>
+        <tr>
+            <th>EXAM NAME</th>
+            <th>PROF. NAME</th>
+            <th>DATE</th>
+            <th>CFU</th>
+            <th>GRADE</th>
+            <th>ACCPET/DECLINE?</th>
+        </tr>
+        <tr th:each="exam: ${pendingExams}">
+            <td th:text="${exam.name}" />
+            <td th:text="${exam.course.profName}" />
+            <td th:text="${exam.examDate}" />
+            <td th:text="${exam.course.cfu}" />
+            <td th:text="${exam.grade}" />
+            <td>
+                <button th:id="'acceptExamButton_' + ${exam.id}" th:onclick="'acceptExamAction(' + ${exam.id} + ')'" >ACCEPT</button><br/>
+                <button th:id="'declineExamButton_' + ${exam.id}" th:onclick="'declineExamAction(' + ${exam.id} + ')'" >DECLINE</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="enrollExamTable">
+    <h3>New exams</h3>
+    <!-- AVAILABLE EXAMS -->
+    <table id="availableExamsTable">
+        <tr>
+            <th>EXAM NAME</th>
+            <th>LAST AVAILABLE ENROLLMENT DAY</th>
+            <th>EXAM DATE</th>
+            <th>ENROLL ACTION</th>
+        </tr>
+        <tr th:each="exam: ${availableExams}">
+            <td th:text="${exam.name}" />
+            <td th:text="${exam.lastDayToEnroll}" />
+            <td th:text="${exam.examDate}" />
+            <td>
+                <button th:id="'enrollExamButton' + ${exam.id}" onclick="confirmAction('Enroll', ${exam.id})">Enroll</button>
+            </td>
+        </tr>
+    </table>
+
+    <!-- EXAMS ON WHICH I AM ENROLLED -->
+    <table>
+        <tr>
+            <th>EXAM NAME</th>
+            <th>ENROLLMENT DAY</th>
+            <th>EXAM DATE</th>
+        </tr>
+        <tr th:each="exam: ${enrolledExams}">
+            <td th:text="${exam.name}" />
+            <td th:text="${exam.lastDayToEnroll}" />
+            <td th:text="${exam.examDate}" />
+            <td>
+                <button th:id="'enrollExamButton' + ${exam.id}" onclick="confirmAction('Enroll', ${exam.id})">Enroll</button>
+            </td>
+        </tr>
+    </table>
 </div>
 <footer>
     <p>2024 iLearn - All rights reserved</p>
@@ -32,6 +112,3 @@
 
 </body>
 </html>
-
-
-

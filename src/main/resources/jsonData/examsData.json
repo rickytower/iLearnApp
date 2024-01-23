@@ -3,78 +3,92 @@
     "id": 1,
     "name": "Analisi del software - Exam 1",
     "examTypeMethod": "WRITTEN",
-    "examDate": "2023-02-10"
+    "examDate": "2023-02-10",
+    "course": "Analisi del software"
+
   },
   {
     "id": 2,
     "name": "Analisi del software - Exam 2",
     "examTypeMethod": "ORAL",
-    "examDate": "2023-09-20"
+    "examDate": "2023-09-20",
+    "course":"Analisi del software"
   },
   {
     "id": 3,
     "name": "Analisi del software - Exam 3",
     "examTypeMethod": "LABORATORY",
-    "examDate": "2024-01-10"
+    "examDate": "2024-01-10",
+    "course":"Analisi del software"
   },
   {
     "id": 4,
     "name": "Basi di dati avanzate - Exam 1",
     "examTypeMethod": "WRITTEN",
-    "examDate": "2023-02-05"
+    "examDate": "2023-02-05",
+    "course": "Basi di dati avanzate"
   },
   {
     "id": 5,
     "name": "Basi di dati avanzate - Exam 2",
     "examTypeMethod": "ORAL",
-    "examDate": "2023-06-18"
+    "examDate": "2023-06-18",
+    "course": "Basi di dati avanzate"
   },
   {
     "id": 6,
     "name": "Basi di dati avanzate - Exam 3",
     "examTypeMethod": "LABORATORY",
-    "examDate": "2024-01-12"
+    "examDate": "2024-01-12",
+    "course": "Basi di dati avanzate"
   },
   {
     "id": 7,
     "name": "Cybersecurity e protezione dati - Exam 1",
     "examTypeMethod": "WRITTEN",
-    "examDate": "2023-02-15"
+    "examDate": "2023-02-15",
+    "course": "Cybersecurity e protezione dati"
   },
   {
     "id": 8,
     "name": "Cybersecurity e protezione dati - Exam 2",
     "examTypeMethod": "ORAL",
-    "examDate": "2023-07-10"
+    "examDate": "2023-07-10",
+    "course": "Cybersecurity e protezione dati"
   },
   {
     "id": 9,
     "name": "Progettazione e validazione di sistemi software - Exam 1",
     "examTypeMethod": "WRITTEN",
-    "examDate": "2023-02-20"
+    "examDate": "2023-02-20",
+    "course": "Progettazione e validazione di sistemi software"
   },
   {
     "id": 10,
     "name": "Progettazione e validazione di sistemi software - Exam 2",
     "examTypeMethod": "ORAL",
-    "examDate": "2024-02-02"
+    "examDate": "2024-02-02",
+    "course": "Progettazione e validazione di sistemi software"
   },
   {
     "id": 11,
     "name": "Sicurezza del software - Exam 1",
     "examTypeMethod": "WRITTEN",
-    "examDate": "2023-02-10"
+    "examDate": "2023-02-10",
+    "course": "Sicurezza del software"
   },
   {
     "id": 12,
     "name": "Sicurezza del software - Exam 2",
     "examTypeMethod": "ORAL",
-    "examDate": "2023-07-25"
+    "examDate": "2023-07-25",
+    "course": "Sicurezza del software"
   },
   {
     "id": 13,
     "name": "Sistemi informativi aziendali - Exam 1",
     "examTypeMethod": "WRITTEN",
-    "examDate": "2023-07-15"
+    "examDate": "2023-07-15",
+    "course": "Sistemi informativi aziendali"
   }
 ]

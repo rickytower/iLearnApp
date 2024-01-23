@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import org.iLearn.iLearnApp.model.entity.Course;
 import org.iLearn.iLearnApp.model.entity.Exam;
+import org.iLearn.iLearnApp.model.entity.StudentRegistration;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.CourseRepository;
 import org.iLearn.iLearnApp.model.repository.ExamRepository;
@@ -23,6 +24,7 @@ public class DBUtils {
     private static final String studentsFilePath = jsonPath + "usersRegistredData.json";
     private static final String examsFilePath = jsonPath + "examsData.json";
     private static final String coursesFilePath = jsonPath + "coursesData.json";
+    private static final String studentRegistrationPath = jsonPath + "studentRegistrationData";
 
     @Autowired
     private UserRegistredRepository userRegistredRepository;
@@ -50,6 +52,8 @@ public class DBUtils {
             List<Exam> examList = objectMapper.readValue(new File(examsFilePath), new TypeReference<>() {
             });
             List<Course> courseList = objectMapper.readValue(new File(coursesFilePath), new TypeReference<>() {
+            });
+            List<StudentRegistration> studentRegistrationList = objectMapper.readValue(new File(studentRegistrationPath), new TypeReference<List<StudentRegistration>>() {
             });
             userRegistredRepository.saveAll(userRegistredList);
             examRepository.saveAll(examList);

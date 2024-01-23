@@ -12,6 +12,12 @@
 
     <h1>iLearn</h1>
 
+    <div class="mainMenu">
+        <a th:href="@{'/profile/' + ${userRegistred.id}}"><button>HOME</button></a>
+        <a th:href="@{'/exam/' + ${userRegistred.id}}"><button>EXAMS</button></a>
+<!--        <button th:href="@{'/payments/' + ${userRegistred.id}}">PAYMENTS</button>-->
+    </div>
+
 </header>
 <section>
     <div id="profileSection">

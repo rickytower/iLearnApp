@@ -29,6 +29,25 @@ public class ExamObject extends PageObject{
 
 
     /**
+     *
+     * Exam in which I can enroll related xpath:
+     */
+
+
+    /**
+     *
+     * Exam in which I am enrolled related xpath:
+     */
+
+
+    /**
+     * _______________________________________________________________________
+     * _______________________________________________________________________
+     * _______________________________________________________________________
+     */
+
+
+    /**
      * Exam book related methods:
      */
     public WebElement getAcceptButtonById(String examId) {
@@ -48,4 +67,15 @@ public class ExamObject extends PageObject{
         String enrollButtonId = "enrollExamButton" + examId;
         return availableExamsTable.findElement(By.id(enrollButtonId));
     }
+
+    /**
+     *
+     * Exam in which I can enroll related methods:
+     */
+
+
+    /**
+     *
+     * Exam in which I am enrolled related methods:
+     */
 }

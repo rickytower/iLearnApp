@@ -26,10 +26,13 @@ public class StudentCareer {
      */
     @OneToMany
     private List<Course> teachingPlan;
+
     @OneToMany
     private List<Exam> recordBook;
 
+//    @OneToMany
     private List<Integer> taxes;
+
     @OneToOne(mappedBy = "studentCareer")
     private Student student;
 }

@@ -22,41 +22,5 @@
       "city": "Othertown",
       "email": "jane.smith@example.com",
       "roleType": "STUDENT"
-    },
-    {
-      "firstname": "Alice",
-      "lastname": "Johnson",
-      "telephoneNumber": "555-123-4567",
-      "fiscalCode": "PQR456LMN",
-      "username": "alice.johnson",
-      "password": "password789",
-      "address": "789 Pine St",
-      "city": "Somewhere",
-      "email": "alice.johnson@example.com",
-      "roleType": "STUDENT"
-    },
-    {
-      "firstname": "Bob",
-      "lastname": "Williams",
-      "telephoneNumber": "111-222-3333",
-      "fiscalCode": "LMN789PQR",
-      "username": "bob.williams",
-      "password": "passwordabc",
-      "address": "321 Cedar St",
-      "city": "Anytown",
-      "email": "bob.williams@example.com",
-      "roleType": "STUDENT"
-    },
-    {
-      "firstname": "Eva",
-      "lastname": "Davis",
-      "telephoneNumber": "444-555-6666",
-      "fiscalCode": "DEF789GHI",
-      "username": "eva.davis",
-      "password": "passwordef",
-      "address": "567 Elm St",
-      "city": "Othertown",
-      "email": "eva.davis@example.com",
-      "roleType": "STUDENT"
     }
 ]
