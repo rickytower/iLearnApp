@@ -22,8 +22,8 @@ public class Exam {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToMany
-    Set<Student> studentRegistred;
+    @OneToMany(mappedBy = "exam")
+    Set<StudentRegistration> studentRegistrations;
 
     private String name;
 

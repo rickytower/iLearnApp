@@ -16,11 +16,12 @@ import java.util.List;
 @Getter
 @Setter
 public class StudentRegistration {
-    @Id
-    @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @Setter(AccessLevel.NONE)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @EmbeddedId
     @EmbeddedId
-    private Long id;
+    private StudentRegistrationKey id;
 
     @ManyToOne
     @MapsId("studentID")

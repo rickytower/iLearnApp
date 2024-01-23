@@ -27,8 +27,9 @@ public class Student extends UserRegistred {
     @OneToMany
     private List<Course> teachingPlan;
 
-    @ManyToMany
-    Set<Exam> examRegistred;
+    @OneToMany(mappedBy = "student")
+    Set<StudentRegistration> studentRegistrations;
+
 //
 //    @OneToMany
 //    private List<Integer> taxes;
