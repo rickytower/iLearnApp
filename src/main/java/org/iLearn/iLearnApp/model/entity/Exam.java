@@ -46,7 +46,8 @@ public class Exam {
     public Exam(@JsonProperty("id")Long id,
                 @JsonProperty("name") String name,
                 @JsonProperty("examTypeMethod") ExamTypeMethod examTypeMethod,
-                @JsonProperty("examDate") Date examDate
+                @JsonProperty("examDate") Date examDate,
+                @JsonProperty("course") String course
     ) {
         this.id = id;
         this.name = name;

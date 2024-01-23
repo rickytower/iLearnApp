@@ -16,20 +16,18 @@ import java.util.List;
 @Getter
 @Setter
 public class StudentRegistration {
-//    @Id
-//    @Setter(AccessLevel.NONE)
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    @EmbeddedId
-    @EmbeddedId
-    private StudentRegistrationKey id;
+    @Id
+    @Setter(AccessLevel.NONE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @ManyToOne
-    @MapsId("studentID")
+    //@MapsId("studentID")
     @JoinColumn(name="student_id")
     Student student;
 
     @ManyToOne
-    @MapsId("examID")
+    //@MapsId("examID")
     @JoinColumn(name="exam_id")
     Exam exam;
 
@@ -40,11 +38,12 @@ public class StudentRegistration {
     private ExamStatus status;
 
     @JsonCreator
-    public StudentRegistration(@JsonProperty("studentID")Long studentID,
-                @JsonProperty("examID") Long examID,
-                @JsonProperty("grade") int grade,
-                @JsonProperty("registrationDate") Date registrationDate,
-                @JsonProperty("status") ExamStatus status
+    public StudentRegistration(
+        @JsonProperty("studentID") Long studentID,
+        @JsonProperty("examID") Long examID,
+        @JsonProperty("grade") int grade,
+        @JsonProperty("registrationDate") Date registrationDate,
+        @JsonProperty("status") ExamStatus status
 
     ) {
 //        this.id = id;

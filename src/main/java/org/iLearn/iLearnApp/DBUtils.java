@@ -9,6 +9,7 @@ import org.iLearn.iLearnApp.model.entity.StudentRegistration;
 import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.CourseRepository;
 import org.iLearn.iLearnApp.model.repository.ExamRepository;
+import org.iLearn.iLearnApp.model.repository.StudentRegistrationRepository;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,7 @@ public class DBUtils {
     private static final String studentsFilePath = jsonPath + "usersRegistredData.json";
     private static final String examsFilePath = jsonPath + "examsData.json";
     private static final String coursesFilePath = jsonPath + "coursesData.json";
-    private static final String studentRegistrationPath = jsonPath + "studentRegistrationData";
+    private static final String studentRegistrationPath = jsonPath + "studentRegistrationData.json";
 
     @Autowired
     private UserRegistredRepository userRegistredRepository;
@@ -33,6 +34,8 @@ public class DBUtils {
     @Autowired
     private CourseRepository courseRepository;
 
+    @Autowired
+    private StudentRegistrationRepository studentRegistrationRepository;
     /**
      * Function used to initialize different data from the json files.
      *
@@ -53,11 +56,13 @@ public class DBUtils {
             });
             List<Course> courseList = objectMapper.readValue(new File(coursesFilePath), new TypeReference<>() {
             });
-            List<StudentRegistration> studentRegistrationList = objectMapper.readValue(new File(studentRegistrationPath), new TypeReference<List<StudentRegistration>>() {
+            List<StudentRegistration> studentRegistrationList = objectMapper.readValue(new File(studentRegistrationPath), new TypeReference<>() {
             });
+
             userRegistredRepository.saveAll(userRegistredList);
             examRepository.saveAll(examList);
             courseRepository.saveAll(courseList);
+            studentRegistrationRepository.saveAll(studentRegistrationList);
         }catch(IOException e){
             e.printStackTrace();
         }
