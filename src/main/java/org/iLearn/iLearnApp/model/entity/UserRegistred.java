@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserRegistred {
+public abstract class UserRegistred {
 
     @Id
     @Setter(AccessLevel.NONE)

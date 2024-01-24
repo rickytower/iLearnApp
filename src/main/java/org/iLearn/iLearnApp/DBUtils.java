@@ -3,14 +3,8 @@ package org.iLearn.iLearnApp;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
-import org.iLearn.iLearnApp.model.entity.Course;
-import org.iLearn.iLearnApp.model.entity.Exam;
-import org.iLearn.iLearnApp.model.entity.StudentRegistration;
-import org.iLearn.iLearnApp.model.entity.UserRegistred;
-import org.iLearn.iLearnApp.model.repository.CourseRepository;
-import org.iLearn.iLearnApp.model.repository.ExamRepository;
-import org.iLearn.iLearnApp.model.repository.StudentRegistrationRepository;
-import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
+import org.iLearn.iLearnApp.model.entity.*;
+import org.iLearn.iLearnApp.model.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,8 +21,14 @@ public class DBUtils {
     private static final String coursesFilePath = jsonPath + "coursesData.json";
     private static final String studentRegistrationPath = jsonPath + "studentRegistrationData.json";
 
+    /*@Autowired
+    private UserRegistredRepository userRegistredRepository;*/
     @Autowired
-    private UserRegistredRepository userRegistredRepository;
+    private StudentRepository studentRepository;
+
+    @Autowired
+    private ProfessorRepository professorRepository;
+
     @Autowired
     private ExamRepository examRepository;
     @Autowired
@@ -59,7 +59,15 @@ public class DBUtils {
             List<StudentRegistration> studentRegistrationList = objectMapper.readValue(new File(studentRegistrationPath), new TypeReference<>() {
             });
 
-            userRegistredRepository.saveAll(userRegistredList);
+            //userRegistredRepository.saveAll(userRegistredList);
+            for (UserRegistred userRegistred: userRegistredList
+                 ) {
+                if(userRegistred.getRoleType().equals(RoleType.STUDENT)){
+                    studentRepository.save((Student) userRegistred);
+                }else if(userRegistred.getRoleType().equals(RoleType.PROFESSOR)){
+                    professorRepository.save((Professor) userRegistred);
+                }
+            }
             examRepository.saveAll(examList);
             courseRepository.saveAll(courseList);
             studentRegistrationRepository.saveAll(studentRegistrationList);
@@ -68,9 +76,9 @@ public class DBUtils {
         }
     }
 
-    public UserRegistredRepository getUserRegistredRepository() {
-        return userRegistredRepository;
-    }
+//    public UserRegistredRepository getUserRegistredRepository() {
+//        return userRegistredRepository;
+//    }
 
     public CourseRepository getCourseRepository() {
         return courseRepository;
@@ -81,7 +89,9 @@ public class DBUtils {
     }
 
     public void dropDataDB() {
-        userRegistredRepository.deleteAll();
+//        userRegistredRepository.deleteAll();
+        studentRepository.deleteAll();
+        professorRepository.deleteAll();
         courseRepository.deleteAll();
         examRepository.deleteAll();
     }

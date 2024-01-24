@@ -4,15 +4,11 @@ import org.iLearn.iLearnApp.model.entity.UserRegistred;
 import org.iLearn.iLearnApp.model.repository.UserRegistredRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Optional;
-
 @Controller
-public class AppController {
+public class LoginController {
     @Autowired
     private UserRegistredRepository userRegistredRepository;
 
@@ -21,7 +17,7 @@ public class AppController {
         return "login";
     }
 
-    @RequestMapping("/login")//aggiungere il role type e in base a quello istanziare l'utente come studente
+    @RequestMapping("/login")
     public String loginPage(@RequestParam("username") String username, @RequestParam("password") String password) {
 
         /**
