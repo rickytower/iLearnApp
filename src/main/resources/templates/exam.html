@@ -37,11 +37,11 @@
             <th>GRADE</th>
         </tr>
         <tr th:each="exam: ${acceptedExams}">
-            <td th:text="${exam.name}" />
-            <td th:text="${exam.course.profName}" />
-            <td th:text="${exam.examDate}" />
-            <td th:text="${exam.course.cfu}" />
-            <td th:text="${exam.grade}" />
+            <td th:text="${exam.name}"></td>
+            <td th:text="${exam.course.profName}"></td>
+            <td th:text="${exam.examDate}"></td>
+            <td th:text="${exam.course.cfu}"></td>
+            <td th:text="${exam.grade}"></td>
         </tr>
     </table>
 
@@ -56,11 +56,11 @@
             <th>ACCPET/DECLINE?</th>
         </tr>
         <tr th:each="exam: ${pendingExams}">
-            <td th:text="${exam.name}" />
-            <td th:text="${exam.course.profName}" />
-            <td th:text="${exam.examDate}" />
-            <td th:text="${exam.course.cfu}" />
-            <td th:text="${exam.grade}" />
+            <td th:text="${exam.name}"></td>
+            <td th:text="${exam.course.profName}"></td>
+            <td th:text="${exam.examDate}"></td>
+            <td th:text="${exam.course.cfu}"></td>
+            <td th:text="${exam.grade}"></td>
             <td>
                 <button th:id="'acceptExamButton_' + ${exam.id}" th:onclick="'acceptExamAction(' + ${exam.id} + ')'" >ACCEPT</button><br/>
                 <button th:id="'declineExamButton_' + ${exam.id}" th:onclick="'declineExamAction(' + ${exam.id} + ')'" >DECLINE</button>
@@ -97,9 +97,9 @@
             <th>EXAM DATE</th>
         </tr>
         <tr th:each="exam: ${enrolledExams}">
-            <td th:text="${exam.name}" />
-            <td th:text="${exam.lastDayToEnroll}" />
-            <td th:text="${exam.examDate}" />
+            <td th:text="${exam.name}"></td>
+            <td th:text="${exam.lastDayToEnroll}"></td>
+            <td th:text="${exam.examDate}"></td>
             <td>
                 <button th:id="'enrollExamButton' + ${exam.id}" onclick="confirmAction('Enroll', ${exam.id})">Enroll</button>
             </td>

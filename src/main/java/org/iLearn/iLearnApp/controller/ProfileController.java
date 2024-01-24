@@ -14,17 +14,17 @@ public class ProfileController {
     @Autowired
     private UserRegistredRepository userRegistredRepository;
 
-    @RequestMapping("/profile/{id}")
-    public String profilePage(@PathVariable("id") Long id, Model model) {
-        Optional<UserRegistred> userRegistred = userRegistredRepository.findById(id);
+    @RequestMapping("/profile/{username}")
+    public String profilePage(@PathVariable("username") String username, Model model) {
+        Optional<UserRegistred> userRegistred = userRegistredRepository.findByUsername(username);
         userRegistred.ifPresent(user -> model.addAttribute("userRegistred", user));
         return "profile";
     }
 
     // Page redirect
-    @GetMapping("/editProfile/{id}")
-    public String profileEdit(@PathVariable Long id, Model model) {
-        Optional<UserRegistred> optionalUserRegistred = userRegistredRepository.findById(id);
+    @GetMapping("/editProfile/{username}")
+    public String profileEdit(@PathVariable String username, Model model) {
+        Optional<UserRegistred> optionalUserRegistred = userRegistredRepository.findByUsername(username);
 
         if (optionalUserRegistred.isPresent()) {
             UserRegistred user = optionalUserRegistred.get();
@@ -37,14 +37,14 @@ public class ProfileController {
     }
 
     // Form submission
-    @PostMapping("/editProfile/{id}")
-    public String handleProfileEdit(@PathVariable("id") Long id,
+    @PostMapping("/editProfile/{username}")
+    public String handleProfileEdit(@PathVariable("username") String username,
                                     @RequestParam("email") String email,
                                     @RequestParam("telephoneNumber") String telephoneNumber,
                                     @RequestParam("address") String address,
                                     @RequestParam("city") String city,
                                     Model model) {
-        Optional<UserRegistred> optionalUser = userRegistredRepository.findById(id);
+        Optional<UserRegistred> optionalUser = userRegistredRepository.findByUsername(username);
 
         if (optionalUser.isPresent()) {
             UserRegistred user = optionalUser.get();
@@ -54,7 +54,7 @@ public class ProfileController {
             user.setTelephoneNumber(telephoneNumber);
             userRegistredRepository.save(user);
             model.addAttribute("userRegistred",user);
-            return "redirect:/profile/" + id;
+            return "redirect:/profile/" + username;
         } else {
             // User not found, you can redirect to an error page or handle it as needed
             return "profile_not_found";

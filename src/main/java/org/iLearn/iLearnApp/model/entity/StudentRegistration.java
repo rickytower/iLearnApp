@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -35,7 +34,7 @@ public class StudentRegistration {
 
     private Date registrationDate;
 
-    private ExamStatus status;
+    private ExamStatus examStatus;
 
     @JsonCreator
     public StudentRegistration(
@@ -43,7 +42,7 @@ public class StudentRegistration {
         @JsonProperty("examID") Long examID,
         @JsonProperty("grade") int grade,
         @JsonProperty("registrationDate") Date registrationDate,
-        @JsonProperty("status") ExamStatus status
+        @JsonProperty("status") ExamStatus examStatus
 
     ) {
 //        this.id = id;
@@ -51,7 +50,7 @@ public class StudentRegistration {
 //        this.studentID = studentID;
         this.grade = grade;
         this.registrationDate = registrationDate;
-        this.status = status;
+        this.examStatus = examStatus;
     }
 }
 

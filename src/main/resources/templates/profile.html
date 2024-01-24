@@ -13,9 +13,9 @@
     <h1>iLearn</h1>
 
     <div class="mainMenu">
-        <a th:href="@{'/profile/' + ${userRegistred.id}}"><button>HOME</button></a>
-        <a th:href="@{'/exam/' + ${userRegistred.id}}"><button>EXAMS</button></a>
-<!--        <button th:href="@{'/payments/' + ${userRegistred.id}}">PAYMENTS</button>-->
+        <a th:href="@{'/profile/' + ${userRegistred.username}}"><button>HOME</button></a>
+        <a th:href="@{'/exam/' + ${userRegistred.username}}"><button>EXAMS</button></a>
+<!--        <button th:href="@{'/payments/' + ${userRegistred.username}}">PAYMENTS</button>-->
     </div>
 
 </header>
@@ -66,7 +66,7 @@
                 <td><span id="address" th:text="${userRegistred.address}"></span></td>
                 <td><span id="city" th:text="${userRegistred.city}"></span></td>
                 <td>
-                    <a th:href="@{'/editProfile/' + ${userRegistred.id}}" style="text-decoration: none;">
+                    <a th:href="@{'/editProfile/' + ${userRegistred.username}}" style="text-decoration: none;">
                         <button id="editButton">EDIT DATA</button>
                     </a>
 

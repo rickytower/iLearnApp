@@ -21,7 +21,7 @@ public class AppController {
         return "login";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/login")//aggiungere il role type e in base a quello istanziare l'utente come studente
     public String loginPage(@RequestParam("username") String username, @RequestParam("password") String password) {
 
         /**
@@ -32,7 +32,7 @@ public class AppController {
         if (userRegistredRepository.findByUsernameAndPassword(username, password).isPresent()) {
             UserRegistred userRegistred = userRegistredRepository.findByUsernameAndPassword(username, password).get();
             if (username.equals(userRegistred.getUsername()) && password.equals(userRegistred.getPassword())) {
-                return "redirect:/profile/" + userRegistred.getId();
+                return "redirect:/profile/" + userRegistred.getUsername();
             }
         } else {
             System.out.println("Username / Password wrong. Please check the credentials.");
