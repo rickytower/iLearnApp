@@ -17,7 +17,8 @@ import java.util.List;
 public class DBUtils {
     // Specify the path to your JSON file
     private static final String jsonPath = "src/main/resources/jsonData/";
-    private static final String userRegistredFilePath = jsonPath + "usersRegistredData.json";
+    private static final String professorsFilePath = jsonPath + "professorsData.json";
+    private static final String studentsFilePath = jsonPath + "studentsData.json";
     private static final String examsFilePath = jsonPath + "examsData.json";
     private static final String coursesFilePath = jsonPath + "coursesData.json";
     private static final String studentRegistrationPath = jsonPath + "studentRegistrationData.json";
@@ -54,7 +55,10 @@ public class DBUtils {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            List<UserRegistred> userRegistredList = objectMapper.readValue(new File(userRegistredFilePath), new TypeReference<>() {
+            List<Professor> professorList = objectMapper.readValue(new File(professorsFilePath), new TypeReference<>() {
+            });
+
+            List<Student> studentList = objectMapper.readValue(new File(studentsFilePath), new TypeReference<>() {
             });
             List<Exam> examList = objectMapper.readValue(new File(examsFilePath), new TypeReference<>() {
             });
@@ -63,15 +67,10 @@ public class DBUtils {
             List<StudentRegistration> studentRegistrationList = objectMapper.readValue(new File(studentRegistrationPath), new TypeReference<>() {
             });
 
-            userRegistredRepository.saveAll(userRegistredList);
-            for (UserRegistred userRegistred: userRegistredList
-                 ) {
-                if(userRegistred.getRoleType().equals(RoleType.STUDENT) && userRegistred instanceof Student){
-                    studentRepository.save((Student) userRegistred);
-                }else if(userRegistred.getRoleType().equals(RoleType.PROFESSOR) && userRegistred instanceof Professor){
-                    professorRepository.save((Professor) userRegistred);
-                }
-            }
+            userRegistredRepository.saveAll(professorList);
+            userRegistredRepository.saveAll(studentList);
+            studentRepository.saveAll(studentList);
+            professorRepository.saveAll(professorList);
             examRepository.saveAll(examList);
             courseRepository.saveAll(courseList);
             studentRegistrationRepository.saveAll(studentRegistrationList);

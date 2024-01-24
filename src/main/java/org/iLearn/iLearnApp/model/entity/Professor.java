@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
-@Getter
 @Setter
 public class Professor extends UserRegistred {
     public Professor(String firstname, String lastname, String telephoneNumber, String fiscalCode, String username, String password, String address, String city, RoleType roleType) {

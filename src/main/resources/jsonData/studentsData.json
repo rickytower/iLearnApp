@@ -1,0 +1,14 @@
+[
+  {
+    "firstname": "Jane",
+    "lastname": "Smith",
+    "telephoneNumber": "987-654-3210",
+    "fiscalCode": "XYZ789ABC",
+    "username": "jane.smith",
+    "password": "password456",
+    "address": "456 Oak St",
+    "city": "Othertown",
+    "email": "jane.smith@example.com",
+    "roleType": "STUDENT"
+  }
+]
