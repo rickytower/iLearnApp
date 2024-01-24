@@ -3,6 +3,7 @@ package org.iLearn.iLearnApp;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import org.iLearn.iLearnApp.model.entity.*;
 import org.iLearn.iLearnApp.model.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +17,24 @@ import java.util.List;
 public class DBUtils {
     // Specify the path to your JSON file
     private static final String jsonPath = "src/main/resources/jsonData/";
-    private static final String studentsFilePath = jsonPath + "usersRegistredData.json";
+    private static final String userRegistredFilePath = jsonPath + "usersRegistredData.json";
     private static final String examsFilePath = jsonPath + "examsData.json";
     private static final String coursesFilePath = jsonPath + "coursesData.json";
     private static final String studentRegistrationPath = jsonPath + "studentRegistrationData.json";
 
-    /*@Autowired
-    private UserRegistredRepository userRegistredRepository;*/
+    @Getter
+    @Autowired
+    private UserRegistredRepository userRegistredRepository;
     @Autowired
     private StudentRepository studentRepository;
 
     @Autowired
     private ProfessorRepository professorRepository;
 
+    @Getter
     @Autowired
     private ExamRepository examRepository;
+    @Getter
     @Autowired
     private CourseRepository courseRepository;
 
@@ -50,7 +54,7 @@ public class DBUtils {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            List<UserRegistred> userRegistredList = objectMapper.readValue(new File(studentsFilePath), new TypeReference<>() {
+            List<UserRegistred> userRegistredList = objectMapper.readValue(new File(userRegistredFilePath), new TypeReference<>() {
             });
             List<Exam> examList = objectMapper.readValue(new File(examsFilePath), new TypeReference<>() {
             });
@@ -59,12 +63,12 @@ public class DBUtils {
             List<StudentRegistration> studentRegistrationList = objectMapper.readValue(new File(studentRegistrationPath), new TypeReference<>() {
             });
 
-            //userRegistredRepository.saveAll(userRegistredList);
+            userRegistredRepository.saveAll(userRegistredList);
             for (UserRegistred userRegistred: userRegistredList
                  ) {
-                if(userRegistred.getRoleType().equals(RoleType.STUDENT)){
+                if(userRegistred.getRoleType().equals(RoleType.STUDENT) && userRegistred instanceof Student){
                     studentRepository.save((Student) userRegistred);
-                }else if(userRegistred.getRoleType().equals(RoleType.PROFESSOR)){
+                }else if(userRegistred.getRoleType().equals(RoleType.PROFESSOR) && userRegistred instanceof Professor){
                     professorRepository.save((Professor) userRegistred);
                 }
             }
@@ -76,22 +80,8 @@ public class DBUtils {
         }
     }
 
-//    public UserRegistredRepository getUserRegistredRepository() {
-//        return userRegistredRepository;
-//    }
-
-    public CourseRepository getCourseRepository() {
-        return courseRepository;
-    }
-
-    public ExamRepository getExamRepository() {
-        return examRepository;
-    }
-
     public void dropDataDB() {
-//        userRegistredRepository.deleteAll();
-        studentRepository.deleteAll();
-        professorRepository.deleteAll();
+        userRegistredRepository.deleteAll();
         courseRepository.deleteAll();
         examRepository.deleteAll();
     }

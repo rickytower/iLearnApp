@@ -3,10 +3,7 @@ package org.iLearn.iLearnApp.model.entity;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.lang.reflect.Field;
 
@@ -14,7 +11,7 @@ import java.lang.reflect.Field;
 @NoArgsConstructor
 @Setter
 @Getter
-public abstract class UserRegistred {
+public class UserRegistred {
 
     @Id
     @Setter(AccessLevel.NONE)

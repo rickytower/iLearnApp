@@ -11,7 +11,6 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Setter
-@Getter
 public class Student extends UserRegistred {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_career_id", referencedColumnName = "id")
